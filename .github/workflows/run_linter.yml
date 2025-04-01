@@ -21,5 +21,5 @@ jobs:
         env:
           VALIDATE_PYTHON: true  
           VALIDATE_MARKDOWN: false 
-          FILTER_REGEX_EXCLUDE: ^\.github/
+          VALIDATE_NATURAL_LANGUAGE: false
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
