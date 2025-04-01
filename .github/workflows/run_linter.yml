@@ -1,0 +1,25 @@
+name: Simple CI with Super Linter
+
+on:
+  push:
+    branches-ignore: [master, main]
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Run linter
+        uses: github/super-linter@v4
+        env:
+          VALIDATE_PYTHON: true  
+          VALIDATE_MARKDOWN: false 
+          VALIDATE_NATURAL_LANGUAGE: false
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
